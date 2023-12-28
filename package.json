@@ -1,0 +1,10 @@
+{
+  "name": "philquotes",
+  "version": "1.0.0",
+  "description": "Philosophy Quotes API",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
