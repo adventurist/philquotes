@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
 
   // Check if the provided name exists in the quotes data
   if (!quotesData[name]) {
-    return res.status(404).json({ error: 'Name not found.' });
+    return res.status(404).send("Fuck you asshole. - Arnold");
   }
 
   // Get a random quote for the specified name
