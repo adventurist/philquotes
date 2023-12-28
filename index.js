@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 const app = express();
-const PORT = 3000; // You can use any port you prefer
+const PORT = 4958; // You can use any port you prefer
 
 // Read the JSON file
 const filePath = path.join(__dirname, 'quotes.json');
