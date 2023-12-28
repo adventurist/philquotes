@@ -11,7 +11,7 @@ const quotesData = JSON.parse(fs.readFileSync(filePath, 'utf8'));
 //-------------------------------------------------
 app.get('/', (req, res) =>
 {
-  const name = req.query.name.toLowerCase();
+  const name = (req.query.name) ? req.query.name.toLowerCase() : 'hegel'
 
   if (!name)
     return res.status(400).json({ error: 'Name parameter is required.' });
