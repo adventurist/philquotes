@@ -7,11 +7,11 @@ const PORT = 4958;
 
 const filePath = path.join(__dirname, 'quotes.json');
 const quotesData = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-
+const names = [ 'hegel', 'marx', 'random', 'lenin', 'mao' ]
 //-------------------------------------------------
 app.get('/', (req, res) =>
 {
-  const name = (req.query.name) ? req.query.name.toLowerCase() : 'hegel'
+  const name = (req.query.name) ? req.query.name.toLowerCase() : names[Math.floor(Math.random() * names.length)]
 
   if (!name)
     return res.status(400).json({ error: 'Name parameter is required.' });
