@@ -36,7 +36,7 @@ function find_quote(query, name)
 }
 
 //-------------------------------------------------
-app.get('/quote/:name?', (req, res) =>
+app.get('/:name?', (req, res) =>
 {
   try
   {
