@@ -15,24 +15,25 @@ function get_quotes(name)
   return []
 }
 
-function find_quote(query, name)
+function find_quotes(query, name)
 {
   if (!query)
     return
-
+  const quotes = []
   if (name && name in data)
   {
     for (const text of data[name])
       if (text.includes(query))
-        return { name, text }
+        quotes.push({ name, text })
   }
   else
   {
     for (const name in data)
       for (const text of data[name])
         if (text.includes(query))
-          return { name, text }
+          quotes.push({ name, text })
   }
+  return quotes
 }
 
 //-------------------------------------------------
@@ -45,7 +46,7 @@ app.get('/:name?', (req, res) =>
     if (query)
     {
       let result
-      if (result = find_quote(query, name))
+      if (result = find_quotes(query, name))
         return res.json(result)
       else
         return res.status(404).json({ error: `No result found for "${query}"`})
