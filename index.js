@@ -8,13 +8,32 @@ const file    = path.join(__dirname, 'quotes.json');
 const data    = JSON.parse(fs.readFileSync(file, 'utf8'))
 const names   = Object.keys(data)
 
+const aliases =
+{
+  marx: ['karl', 'karlmarx', 'karl_marx', ''],
+  hegel: [],
+  trans: ['transgender', 'transexual', 'transgendermarxism'],
+  mao: ['zedong', 'mao zedong', 'mao_zedong'],
+  marcuse: ['herbert', 'herbert marcuse', 'herbert_marcuse'],
+  robin: ['diangelo', 'di angelo', 'robin diangelo'],
+  freire: ['paulo', 'paulo freire']
+}
+
+function add_aliases()
+{
+  for (const name in aliases)
+    if (name in data)
+      for (const alias of aliases[name])
+        data[alias] = data[name]
+}
+//---------------------------------------
 function get_quotes(name)
 {
   if (name in data)
     return data[name]
   return []
 }
-
+//---------------------------------------
 function find_quotes(query, name)
 {
   if (!query)
@@ -70,4 +89,9 @@ app.get('/:name?', (req, res) =>
   }
 })
 //-------------------------------------------------
-app.listen(PORT, () => { console.log(`Server is running on http://localhost:${PORT}`)})
+app.listen(PORT, () =>
+{
+  add_aliases()
+  console.log(`Server is running on http://localhost:${PORT}`)
+})
+
