@@ -10,15 +10,15 @@ const names   = Object.keys(data)
 
 const aliases =
 {
-  marx: ['karl', 'karlmarx', 'karl_marx', ''],
-  hegel: [],
+  marx: ['karl', 'karlmarx', 'karl_marx', 'karl marx'],
+  hegel: ['georg wilhelm friedrich hegel', 'gwfhegel', 'gwf hegel', 'gwf_hegel'],
   trans: ['transgender', 'transexual', 'transgendermarxism'],
-  mao: ['zedong', 'mao zedong', 'mao_zedong'],
-  marcuse: ['herbert', 'herbert marcuse', 'herbert_marcuse'],
-  robin: ['diangelo', 'di angelo', 'robin diangelo'],
-  freire: ['paulo', 'paulo freire']
+  mao: ['zedong', 'mao zedong', 'mao_zedong', 'maozedong'],
+  marcuse: ['herbert', 'herbert marcuse', 'herbert_marcuse', 'herbertmarcuse'],
+  robin: ['diangelo', 'di angelo', 'robin diangelo', 'robindiangelo'],
+  freire: ['paulo', 'paulo freire', 'paulo_freire', 'paulofreire']
 }
-
+//---------------------------------------
 function add_aliases()
 {
   for (const name in aliases)
