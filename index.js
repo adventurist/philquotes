@@ -4,20 +4,10 @@ const fs      = require('fs')
 const path    = require('path')
 const app     = express()
 const PORT    = 4958
-const file    = path.join(__dirname, 'quotes.json');
-const data    = JSON.parse(fs.readFileSync(file, 'utf8'))
+const data    = JSON.parse(fs.readFileSync(path.join(__dirname, 'quotes.json'), 'utf8'))
+const aliases = JSON.parse(fs.readFileSync(path.join(__dirname, 'aliases.json'), 'utf8'))
 const names   = Object.keys(data)
 
-const aliases =
-{
-  marx: ['karl', 'karlmarx', 'karl_marx', 'karl marx'],
-  hegel: ['georg wilhelm friedrich hegel', 'gwfhegel', 'gwf hegel', 'gwf_hegel'],
-  trans: ['transgender', 'transexual', 'transgendermarxism'],
-  mao: ['zedong', 'mao zedong', 'mao_zedong', 'maozedong'],
-  marcuse: ['herbert', 'herbert marcuse', 'herbert_marcuse', 'herbertmarcuse'],
-  robin: ['diangelo', 'di angelo', 'robin diangelo', 'robindiangelo'],
-  freire: ['paulo', 'paulo freire', 'paulo_freire', 'paulofreire']
-}
 //---------------------------------------
 function add_aliases()
 {
