@@ -697,9 +697,19 @@
     }
   }
 };
-            defs["inline_response_200"] = {};
             defs["quote_obj"] = {
   "type" : "object",
+  "properties" : {
+    "name" : {
+      "type" : "string"
+    },
+    "text" : {
+      "type" : "string"
+    }
+  }
+};
+            defs["quotes_arr"] = {
+  "type" : "array",
   "properties" : {
     "name" : {
       "type" : "string"
@@ -806,7 +816,7 @@ public class DefaultApiExample {
         String name = name_example; // String | Author name
         String query = query_example; // String | Filter for a quote matching the string value
         try {
-            inline_response_200 result = apiInstance.nameGet(name, query);
+            array[quote_obj] result = apiInstance.nameGet(name, query);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#nameGet");
@@ -826,7 +836,7 @@ public class DefaultApiExample {
         String name = name_example; // String | Author name
         String query = query_example; // String | Filter for a quote matching the string value
         try {
-            inline_response_200 result = apiInstance.nameGet(name, query);
+            array[quote_obj] result = apiInstance.nameGet(name, query);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#nameGet");
@@ -848,7 +858,7 @@ DefaultApi *apiInstance = [[DefaultApi alloc] init];
 // Fetch quote by author name
 [apiInstance nameGetWith:name
     query:query
-              completionHandler: ^(inline_response_200 output, NSError* error) {
+              completionHandler: ^(array[quote_obj] output, NSError* error) {
                             if (output) {
                                 NSLog(@"%@", output);
                             }
@@ -902,7 +912,7 @@ namespace Example
             try
             {
                 // Fetch quote by author name
-                inline_response_200 result = apiInstance.nameGet(name, query);
+                array[quote_obj] result = apiInstance.nameGet(name, query);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -1053,7 +1063,11 @@ except ApiException as e:
   "content" : {
     "application/json" : {
       "schema" : {
-        "$ref" : "#/components/schemas/inline_response_200"
+        "type" : "array",
+        "items" : {
+          "$ref" : "#/components/schemas/quote_obj"
+        },
+        "x-content-type" : "application/json"
       }
     }
   }
@@ -1185,7 +1199,7 @@ public class DefaultApiExample {
         DefaultApi apiInstance = new DefaultApi();
         String query = query_example; // String | Filter for a quote matching the string value
         try {
-            inline_response_200 result = apiInstance.rootGet(query);
+            array[quote_obj] result = apiInstance.rootGet(query);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#rootGet");
@@ -1204,7 +1218,7 @@ public class DefaultApiExample {
         DefaultApi apiInstance = new DefaultApi();
         String query = query_example; // String | Filter for a quote matching the string value
         try {
-            inline_response_200 result = apiInstance.rootGet(query);
+            array[quote_obj] result = apiInstance.rootGet(query);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#rootGet");
@@ -1224,7 +1238,7 @@ DefaultApi *apiInstance = [[DefaultApi alloc] init];
 
 // Fetch a random quote
 [apiInstance rootGetWith:query
-              completionHandler: ^(inline_response_200 output, NSError* error) {
+              completionHandler: ^(array[quote_obj] output, NSError* error) {
                             if (output) {
                                 NSLog(@"%@", output);
                             }
@@ -1276,7 +1290,7 @@ namespace Example
             try
             {
                 // Fetch a random quote
-                inline_response_200 result = apiInstance.rootGet(query);
+                array[quote_obj] result = apiInstance.rootGet(query);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -1395,7 +1409,11 @@ except ApiException as e:
   "content" : {
     "application/json" : {
       "schema" : {
-        "$ref" : "#/components/schemas/inline_response_200"
+        "type" : "array",
+        "items" : {
+          "$ref" : "#/components/schemas/quote_obj"
+        },
+        "x-content-type" : "application/json"
       }
     }
   }
